@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>My test</title>
+</head>
+<body>
+    <h1 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; text-align: center;">IELTS CALCULATOR</h1>
+    <div class = "form-group">
+        <form>
+            <br>
+            <h2>LISTENING</h2>
+            <select class="form-control form-control-lg"  id="listen">
+                <option style="display: none;" value="" disabled selected>Select your band score</option>
+                <option>6</option>
+                <option>6.5</option>
+                <option>7</option>
+                <option>7.5</option>
+                <option>8</option>
+                <option>8.5</option>
+                <option>9</option>
+            </select>
+            <br>
+            <h2>READING</h2>
+            <select class="form-control form-control-lg" id="read">
+                <option style="display: none;" value="" disabled selected>Select your band score</option>
+                <option>6</option>
+                <option>6.5</option>
+                <option>7</option>
+                <option>7.5</option>
+                <option>8</option>
+                <option>8.5</option>
+                <option>9</option>
+            </select>
+            <br>
+    
+            <h2>WRITING</h2>
+            <select class="form-control form-control-lg" id="write">
+                <option style="display: none;" value="" disabled selected>Select your band score</option>
+                <option>6</option>
+                <option>6.5</option>
+                <option>7</option>
+                <option>7.5</option>
+                <option>8</option>
+                <option>8.5</option>
+                <option>9</option>
+            </select>
+            <br>
+            <h2>SPEAKING</h2>
+            <select class="form-control form-control-lg" id="speak">
+                <option style="display: none;" value="" disabled selected>Select your band score</option>
+                <option>6</option>
+                <option>6.5</option>
+                <option>7</option>
+                <option>7.5</option>
+                <option>8</option>
+                <option>8.5</option>
+                <option>9</option>
+            </select>
+
+    </div>
+
+        <button class="btn btn-primary"  type="button" onclick="val()" >Submit</button>
+      </form>
+
+<script>
+    function val() {
+        listen = parseFloat(document.getElementById("listen").value);
+        read = parseFloat(document.getElementById("read").value);
+        write = parseFloat(document.getElementById("write").value);
+        speak = parseFloat(document.getElementById("speak").value);
+        console.log(listen);
+        console.log(read);
+        console.log(write);
+        console.log(speak);
+        
+        score = (listen + read + speak + write)/4.0;
+        a = parseInt(score);
+        b = score - parseFloat(a); 
+        if (b == 0){
+            alert("Your score is " + score);
+            return;     
+        }
+        else{
+            if(b >= 0.75) a = a+1; 
+            else if(b >= 0.5 || b < 0.5 && b >=0.25) a = a+ 0.5;
+            else a += 0; 
+        }
+
+        alert("Your score is " + a);
+
+        
+    }
+</script>
+</body>
+</html>
